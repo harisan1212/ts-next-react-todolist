@@ -11,9 +11,9 @@
  */
 export const NAVIGATION_LIST = {
   TOP: `/`,
-  DETAIL: `/detail/:id`,
-  EDIT: `/edit/:id`,
-  CREATE: `/create`,
+  DETAIL: `/todo/detail/:id`,
+  EDIT: `/todo/edit/:id`,
+  CREATE: `/todo/create`,
 };
 
 /**
@@ -23,7 +23,7 @@ export const NAVIGATION_LIST = {
  */
 export const NAVIGATION_PATH = {
   TOP: `/`,
-  DETAIL: `/detail/`,
-  EDIT: `/edit/`,
-  CREATE: `/create`,
+  DETAIL: `/todo/detail/`,
+  EDIT: `/todo/edit/`,
+  CREATE: `/todo/create`,
 };

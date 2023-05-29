@@ -1,6 +1,6 @@
-import { createContext, FC, ReactNode, useContext } from "react";
-import { useTodo } from "../hooks/useTodo";
-import { TodoType } from "../interfaces/Todo";
+import { createContext, FC, ReactNode, useContext } from 'react';
+import { useTodo } from '../hooks/useTodo';
+import { TodoType } from '../interfaces/Todo';
 
 type Props = {
   children: ReactNode;
@@ -19,6 +19,11 @@ interface ContextInterface {
  */
 const TodoContext = createContext({} as ContextInterface);
 
+/**
+ * TodoProvider
+ * @param children
+ * @returns
+ */
 export const TodoProvider: FC<Props> = ({ children }) => {
   // カスタムフックから状態とロジックを呼び出してコンテキストプロバイダーにあてがう
   const { originTodoList, addTodo, updateTodo, deleteTodo } = useTodo();

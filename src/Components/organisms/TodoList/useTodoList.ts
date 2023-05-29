@@ -6,6 +6,7 @@
 
 import { NAVIGATION_PATH } from "../../../constants/navigation";
 import { useCallback } from "react";
+import { useRouter } from "next/router";
 
 type ActionType = {
   handleMoveDetailPage: (id: number) => void;
@@ -16,9 +17,8 @@ type ActionType = {
  * useTodoList
  */
 
-//react routerで画面遷移時に組み合わせる
 export const useTodoList = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   /**
    * 詳細ページに遷移する処理
@@ -27,9 +27,9 @@ export const useTodoList = () => {
    */
   const handleMoveDetailPage = useCallback(
     (id: number) => {
-      navigate(`${NAVIGATION_PATH.DETAIL}${id}`);
+      router.push(`${NAVIGATION_PATH.DETAIL}${id}`);
     },
-    [navigate]
+    [router]
   );
 
   /**
@@ -39,9 +39,9 @@ export const useTodoList = () => {
    */
   const handleMoveEditPage = useCallback(
     (id: number) => {
-      navigate(`${NAVIGATION_PATH.EDIT}${id}`);
+      router.push(`${NAVIGATION_PATH.EDIT}${id}`);
     },
-    [navigate]
+    [router]
   );
 
   const action: ActionType = {
