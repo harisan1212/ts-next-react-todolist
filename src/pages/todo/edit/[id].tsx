@@ -4,11 +4,13 @@
  * @package pages
  */
 
-import type { NextPage } from "next";
-import { TodoEditTemplate } from "../../../Components/templates/TodoEditTemplate";
+import type { NextPage } from 'next';
+import { TodoEditTemplate } from '../../../Components/templates/TodoEditTemplate';
 
 /**
  * TodoEditPage
  * @returns {JSX.Element}
  */
-export const TodoEditPage: NextPage = () => <TodoEditTemplate />;
+const TodoEditPage: NextPage = () => <TodoEditTemplate />;
+
+export default TodoEditPage;

@@ -5,7 +5,7 @@
  */
 
 import { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import { NAVIGATION_PATH } from "../../../constants/navigation";
 import { EventType } from "../../../interfaces/Event";
 
@@ -29,8 +29,7 @@ type ActionsType = {
  * @param addTodo
  */
 export const useTodoCreateTemplate = ({ addTodo }: Params) => {
-  const navigate = useNavigate();
-
+  const router = useRouter();
   /* local State */
   const [inputTitle, setInputTitle] = useState("");
   const [inputContent, setInputContent] = useState("");
@@ -55,10 +54,10 @@ export const useTodoCreateTemplate = ({ addTodo }: Params) => {
       e.preventDefault();
       if (inputTitle !== "" && inputContent !== "") {
         addTodo(inputTitle, inputContent);
-        navigate(NAVIGATION_PATH.TOP);
+        router.push(NAVIGATION_PATH.TOP);
       }
     },
-    [inputTitle, inputContent, addTodo, navigate]
+    [inputTitle, inputContent, addTodo, router]
   );
 
   const states: StatesType = {

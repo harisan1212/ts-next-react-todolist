@@ -4,11 +4,11 @@
  * @package components
  */
 
-import { useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useTodoContext } from "../../../contexts/TodoContext";
+import { BaseLayout } from "../../organisms/BaseLayout";
 import { InputForm } from "../../atoms/InputForm";
 import { TextArea } from "../../atoms/TextArea";
-import { BaseLayout } from "../../organisms/BaseLayout";
 import styles from "./styles.module.css";
 
 /**
@@ -17,8 +17,10 @@ import styles from "./styles.module.css";
  */
 export const TodoDetailTemplate = () => {
   const { originTodoList } = useTodoContext();
-  const { id } = useParams();
-  const todo = originTodoList.find((todo) => String(todo.id) === id);
+  const router = useRouter();
+  const todo = originTodoList.find(
+    (todo) => String(todo.id) === router?.query?.id
+  );
 
   return (
     <BaseLayout title={"TodoDetail"}>
